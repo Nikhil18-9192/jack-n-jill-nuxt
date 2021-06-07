@@ -51,7 +51,7 @@ export default {
       position: absolute;
       top: 35px;
       background: #fff;
-      min-width: 220px;
+      min-width: 180px;
       ul {
         list-style: none;
         padding: 0;
