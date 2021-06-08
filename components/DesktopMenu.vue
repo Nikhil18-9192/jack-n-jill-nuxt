@@ -52,17 +52,21 @@ export default {
       top: 35px;
       background: #fff;
       min-width: 180px;
+      transition: 0.3s ease all;
       ul {
         list-style: none;
         padding: 0;
         li {
+          border-bottom: 0.5px solid #000;
+          padding: 15px;
+          &:last-child {
+            border-bottom: none;
+          }
           p {
             font-size: 11px;
             line-height: 12px;
             font-weight: 400;
             text-transform: uppercase;
-            border-bottom: 0.5px solid #000;
-            padding: 15px;
           }
         }
       }

@@ -21,6 +21,7 @@ export default {
   width: 100%;
   height: 150px;
   padding: 0 23px;
+  border-bottom: 1px solid #cccccc;
   .logo {
     position: relative;
     width: 100%;
