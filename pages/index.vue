@@ -1,6 +1,7 @@
 <template>
   <div id="home-page">
     <Hero />
+    <Explore />
   </div>
 </template>
 
