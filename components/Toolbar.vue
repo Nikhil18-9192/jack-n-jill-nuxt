@@ -4,6 +4,7 @@
       <img src="/logo.png" alt="logo" />
       <img class="search" src="search.svg" alt="" />
     </div>
+
     <DesktopMenu />
   </div>
 </template>

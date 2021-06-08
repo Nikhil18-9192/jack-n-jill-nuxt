@@ -1,5 +1,5 @@
 <template>
-  <div id="desktop-menu">
+  <div id="footer-menu">
     <div class="category" v-for="(item, i) in menus" :key="i">
       <nuxt-link to="/">
         <h4 class="title">{{ item.category.name }}</h4>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'DesktopMenuComponent',
+  name: 'FooterMenuComponent',
 
   computed: {
     menus() {
@@ -30,13 +30,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#desktop-menu {
+#footer-menu {
   position: relative;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 25px;
+  row-gap: 35px;
   .category {
     position: relative;
     margin-right: 40px;
@@ -51,7 +50,7 @@ export default {
     .tags {
       display: none;
       position: absolute;
-      top: 35px;
+      bottom: 12px;
       background: #fff;
       min-width: 180px;
       transition: 0.3s ease all;
@@ -79,7 +78,7 @@ export default {
       }
     }
     &:hover {
-      height: 100px;
+      //   height: 100px;
       transition: 0.3s ease all;
       .title {
         font-weight: 600;
