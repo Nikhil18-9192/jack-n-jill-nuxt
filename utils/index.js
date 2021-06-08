@@ -5,4 +5,15 @@ const exploreCards = [
     { title: 'Sumemr Tales', src: '/e4.jpg' }
 ]
 
-export { exploreCards }
+const carouselSlide = [
+    { title: 'KIDS CLOTHING', src: '/1.jpg' },
+    { title: 'BABY CARE', src: '/2.jpg' },
+    { title: 'KIDS CLOTHING', src: '/1.jpg' },
+    { title: 'BABY CARE', src: '/2.jpg' },
+    { title: 'KIDS CLOTHING', src: '/1.jpg' },
+    { title: 'BABY CARE', src: '/2.jpg' },
+    { title: 'KIDS CLOTHING', src: '/1.jpg' },
+    { title: 'BABY CARE', src: '/2.jpg' },
+]
+
+export { exploreCards, carouselSlide }

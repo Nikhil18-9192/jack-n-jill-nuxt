@@ -2,6 +2,7 @@
   <div id="home-page">
     <Hero />
     <Explore />
+    <HomeCarousel />
   </div>
 </template>
 
