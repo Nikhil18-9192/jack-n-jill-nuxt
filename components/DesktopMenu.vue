@@ -45,6 +45,7 @@ export default {
       line-height: 12px;
       font-weight: 400;
       text-transform: uppercase;
+      transition: 0.3s ease all;
     }
     .tags {
       display: none;
@@ -53,6 +54,7 @@ export default {
       background: #fff;
       min-width: 180px;
       transition: 0.3s ease all;
+      z-index: 1;
       ul {
         list-style: none;
         padding: 0;
@@ -67,12 +69,17 @@ export default {
             line-height: 12px;
             font-weight: 400;
             text-transform: uppercase;
+            transition: 0.3s ease all;
+            &:hover {
+              font-weight: 600;
+            }
           }
         }
       }
     }
     &:hover {
       height: 100px;
+      transition: 0.3s ease all;
       .title {
         font-weight: 600;
       }
