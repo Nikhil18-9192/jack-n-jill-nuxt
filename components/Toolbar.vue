@@ -1,7 +1,7 @@
 <template>
   <div id="toolbar">
     <div class="logo">
-      <img src="/logo.png" alt="logo" />
+      <nuxt-link to="/"><img src="/logo.png" alt="logo" /></nuxt-link>
       <img class="search" src="search.svg" alt="" />
     </div>
 

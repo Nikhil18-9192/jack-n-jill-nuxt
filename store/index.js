@@ -19,5 +19,9 @@ export const actions = {
         const menus = await this.$strapi.find('menus')
         commit('SET_MENUS', menus)
     },
+    async fetchProducts({ commit }) {
+        const products = await this.$strapi.$http.$get('/products?category.name=clothes&&tag.name=t-shirt&&_limit=2')
+        console.log('fetchproducts', products);
+    }
 
 }

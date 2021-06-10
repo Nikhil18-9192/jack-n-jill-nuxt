@@ -1,0 +1,22 @@
+query products(
+  $category: String!
+  $tag: String!
+  $start: Int
+  $limit: Int
+  ){
+    products(
+    start: $start
+    limit: $limit
+     
+    where: {
+      category: { name: $category }
+      tags: { name: $tag }
+    }
+  ){
+      id,
+    image{
+      formats
+    },
+    name
+  }
+  }

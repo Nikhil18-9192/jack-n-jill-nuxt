@@ -38,10 +38,24 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    '@nuxtjs/apollo',
   ],
   styleResources: {
     scss: ['~assets/global.scss'],
+  },
+
+  apollo: {
+    tokenName: 'apollo-token',
+
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          process.env.NODE_ENV == 'production'
+            ? 'https://api.juvel.in/graphql'
+            : 'http://localhost:1337/graphql'
+      }
+    }
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -7,7 +7,7 @@
       <div v-if="item.tags && item.tags.length" class="tags">
         <ul>
           <li v-for="tag in item.tags" :key="tag.id">
-            <nuxt-link to="/">
+            <nuxt-link :to="'/browse/' + item.category.name + '_' + tag.name">
               <p>{{ tag.name }}</p>
             </nuxt-link>
           </li>
@@ -20,7 +20,6 @@
 <script>
 export default {
   name: 'DesktopMenuComponent',
-
   computed: {
     menus() {
       return this.$store.getters.getMenus
@@ -36,6 +35,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
   margin-top: 25px;
   .category {
     position: relative;
@@ -51,7 +51,7 @@ export default {
     .tags {
       display: none;
       position: absolute;
-      top: 35px;
+      top: 30px;
       background: #fff;
       min-width: 180px;
       transition: 0.3s ease all;
