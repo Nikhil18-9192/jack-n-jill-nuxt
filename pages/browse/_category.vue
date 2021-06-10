@@ -86,11 +86,9 @@ export default {
     paginate: function () {
       this.start = (this.page - 1) * this.productsPerPage
       this.$apollo.queries.products.fetchMore({
-        // New variables
         variables: {
           start: this.start,
         },
-        // Transform the previous result with new data
         updateQuery: (oldData, { fetchMoreResult }) => {
           const newProducts = fetchMoreResult.products
           if (newProducts.length <= 0) {
