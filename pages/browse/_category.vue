@@ -16,13 +16,28 @@
         </div>
       </div>
     </div>
+    <div class="pagi-info">
+      <Pagination
+        class="pagination"
+        v-model="page"
+        :records="totalCount"
+        :per-page="productsPerPage"
+        @paginate="paginate"
+        :options="paginationOptions"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import productQuery from '@/apollo/queries/products.gql'
+import countQuery from '@/apollo/queries/productsCount.gql'
+import Pagination from 'vue-pagination-2'
 export default {
   name: 'CategoryPage',
+  components: {
+    Pagination,
+  },
   apollo: {
     products: {
       query: productQuery,
@@ -39,16 +54,64 @@ export default {
         }
       },
     },
+    productsConnection: {
+      query: countQuery,
+      prefetch: true,
+      variables() {
+        return {
+          category: this.category,
+          tag: this.tag,
+        }
+      },
+    },
   },
   data() {
     return {
       products: [],
-      productsPerPage: 10,
+      productsPerPage: 8,
       category: '',
       tag: '',
+      filterState: false,
+      filter: {},
+      query: null,
+      start: 0,
+      page: 1,
+      filterState: false,
+      paginationOptions: {
+        chunk: 5,
+      },
     }
   },
-  mounted() {},
+  methods: {
+    paginate: function () {
+      this.start = (this.page - 1) * this.productsPerPage
+      this.$apollo.queries.products.fetchMore({
+        // New variables
+        variables: {
+          start: this.start,
+        },
+        // Transform the previous result with new data
+        updateQuery: (oldData, { fetchMoreResult }) => {
+          const newProducts = fetchMoreResult.products
+          if (newProducts.length <= 0) {
+            return
+          }
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+          return {
+            products: [...newProducts],
+          }
+        },
+      })
+    },
+  },
+  computed: {
+    totalCount() {
+      return this.productsConnection && this.productsConnection.aggregate
+        ? this.productsConnection.aggregate.count
+        : 0
+    },
+  },
+  watch: {},
 }
 </script>
 
@@ -125,6 +188,20 @@ export default {
       }
       &:hover .title {
         opacity: 1;
+      }
+    }
+  }
+  .pagi-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    margin-top: 32px;
+    .pagination {
+      nav {
+        ul {
+          list-style: none;
+        }
       }
     }
   }
