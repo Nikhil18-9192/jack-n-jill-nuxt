@@ -35,7 +35,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   margin-top: 25px;
   .category {
     position: relative;
@@ -51,7 +50,7 @@ export default {
     .tags {
       display: none;
       position: absolute;
-      top: 30px;
+      top: 29px;
       background: #fff;
       min-width: 180px;
       transition: 0.3s ease all;
@@ -64,6 +63,9 @@ export default {
           padding: 15px;
           &:last-child {
             border-bottom: none;
+          }
+          &:first-child {
+            border-top: 1px solid #cccccc;
           }
           p {
             font-size: 11px;
