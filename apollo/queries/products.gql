@@ -10,7 +10,7 @@ query products(
      
     where: {
       category: { name: $category }
-      tags: { name: $tag }
+      tags: { name_contains: $tag }
     }
   ){
       id,

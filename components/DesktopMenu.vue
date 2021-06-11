@@ -1,7 +1,7 @@
 <template>
   <div id="desktop-menu">
     <div class="category" v-for="(item, i) in menus" :key="i">
-      <nuxt-link to="/">
+      <nuxt-link :to="'/browse/' + item.category.name">
         <h4 class="title">{{ item.category.name }}</h4>
       </nuxt-link>
       <div v-if="item.tags && item.tags.length" class="tags">

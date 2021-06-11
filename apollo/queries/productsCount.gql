@@ -2,7 +2,7 @@ query productCount($category: String!, $tag: String!) {
   productsConnection(
     where: {
       category: { name: $category }
-      tags: { name: $tag }
+      tags: { name_contains: $tag }
     }
   ) {
     aggregate {

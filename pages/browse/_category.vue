@@ -1,8 +1,12 @@
 <template>
   <div id="category">
     <div class="route">
-      <p>
-        {{ this.category }}/ <span>{{ this.tag }}</span>
+      <p
+        :style="[
+          tag == '' ? { 'font-weight': '600' } : { 'font-weight': '400' },
+        ]"
+      >
+        {{ category }} <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
       </p>
     </div>
     <div class="card-container">
@@ -33,6 +37,7 @@
 import productQuery from '@/apollo/queries/products.gql'
 import countQuery from '@/apollo/queries/productsCount.gql'
 import Pagination from 'vue-pagination-2'
+const productsPerPage = 10
 export default {
   name: 'CategoryPage',
   components: {
@@ -44,13 +49,24 @@ export default {
       prefetch: true,
       variables() {
         const param = this.$route.params.category
-        this.category = param.split('_')[0]
-        this.tag = param.split('_')[1]
-        return {
-          category: this.category,
-          tag: this.tag,
-          start: 0,
-          limit: 8,
+        console.log(param)
+        if (param.includes('_')) {
+          this.category = param.split('_')[0]
+          this.tag = param.split('_')[1]
+          return {
+            category: this.category,
+            tag: this.tag,
+            start: 0,
+            limit: productsPerPage,
+          }
+        } else {
+          this.category = param
+          return {
+            category: param,
+            tag: '',
+            start: 0,
+            limit: productsPerPage,
+          }
         }
       },
     },
@@ -58,6 +74,13 @@ export default {
       query: countQuery,
       prefetch: true,
       variables() {
+        const param = this.$route.params.category
+        this.category = param
+        this.tag = ''
+        if (param.includes('_')) {
+          this.category = param.split('_')[0]
+          this.tag = param.split('_')[1]
+        }
         return {
           category: this.category,
           tag: this.tag,
@@ -68,7 +91,7 @@ export default {
   data() {
     return {
       products: [],
-      productsPerPage: 8,
+      productsPerPage: productsPerPage,
       category: '',
       tag: '',
       filterState: false,
@@ -82,9 +105,10 @@ export default {
       },
     }
   },
+
   methods: {
     paginate: function () {
-      this.start = (this.page - 1) * this.productsPerPage
+      this.start = (this.page - 1) * productsPerPage
       this.$apollo.queries.products.fetchMore({
         variables: {
           start: this.start,
@@ -195,12 +219,9 @@ export default {
     justify-content: center;
     margin-bottom: 32px;
     margin-top: 32px;
-    .pagination {
-      nav {
-        ul {
-          list-style: none;
-        }
-      }
+
+    ul {
+      list-style: none;
     }
   }
 }
