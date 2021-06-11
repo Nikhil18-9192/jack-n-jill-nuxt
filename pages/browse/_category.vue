@@ -244,7 +244,7 @@ export default {
         opacity: 0.2 !important;
       }
       .active {
-        color: red;
+        color: rgb(223, 50, 50);
       }
     }
   }
