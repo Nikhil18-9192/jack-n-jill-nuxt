@@ -219,9 +219,33 @@ export default {
     justify-content: center;
     margin-bottom: 32px;
     margin-top: 32px;
-
-    ul {
-      list-style: none;
+    ::v-deep .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      li {
+        margin: 0 12px;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.5px solid rgba(0, 0, 0, 0.137);
+        margin-bottom: 8px;
+        border-radius: 6px;
+        padding: 4px 0;
+      }
+      p {
+        text-align: center;
+      }
+      .disabled {
+        opacity: 0.2 !important;
+      }
+      .active {
+        color: red;
+      }
     }
   }
 }
