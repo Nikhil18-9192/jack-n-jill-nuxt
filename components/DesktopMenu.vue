@@ -32,13 +32,13 @@ export default {
 #desktop-menu {
   position: relative;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 25px;
   .category {
     position: relative;
-    padding-right: 40px;
+    padding: 25px;
     transition: 0.3s ease all;
     .title {
       font-size: 11px;
@@ -50,7 +50,7 @@ export default {
     .tags {
       display: none;
       position: absolute;
-      top: 29px;
+      top: 62.5px;
       background: #fff;
       min-width: 180px;
       transition: 0.3s ease all;
@@ -81,7 +81,6 @@ export default {
       }
     }
     &:hover {
-      height: 100px;
       transition: 0.3s ease all;
       .title {
         font-weight: 600;
