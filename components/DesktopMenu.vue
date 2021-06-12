@@ -40,6 +40,11 @@ export default {
     position: relative;
     padding: 25px;
     transition: 0.3s ease all;
+    &:last-child {
+      .tags {
+        left: -40px;
+      }
+    }
     .title {
       font-size: 11px;
       line-height: 12px;
@@ -55,6 +60,7 @@ export default {
       min-width: 180px;
       transition: 0.3s ease all;
       z-index: 1;
+
       ul {
         list-style: none;
         padding: 0;
