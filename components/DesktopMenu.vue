@@ -38,7 +38,7 @@ export default {
   margin-top: 25px;
   .category {
     position: relative;
-    margin-right: 40px;
+    padding-right: 40px;
     transition: 0.3s ease all;
     .title {
       font-size: 11px;
