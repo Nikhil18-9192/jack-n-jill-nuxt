@@ -3,10 +3,10 @@
     <div class="top">
       <h1>EXPLORE</h1>
       <div class="card-container">
-        <div class="card" v-for="(item, i) in cards" :key="i">
+        <div class="card" v-for="(item, i) in cards.items" :key="i">
           <nuxt-link class="global-link" to="/"></nuxt-link>
           <div class="image">
-            <img :src="item.src" :alt="item.title" />
+            <img :src="item.image.url" :alt="item.title" />
           </div>
           <div class="text">
             <p>{{ item.title }}</p>
@@ -22,9 +22,10 @@
 import { exploreCards } from '@/utils'
 export default {
   name: 'ExpoloreComponent',
+
   computed: {
     cards() {
-      return exploreCards
+      return this.$store.getters.getExploreCards
     },
   },
 }
