@@ -2,6 +2,14 @@
   <div>
     <Toolbar />
     <PhoneToolbar />
+    <transition name="slide">
+      <PhoneMenu v-if="menuState" />
+    </transition>
+    <div
+      v-if="menuState"
+      class="menuModal"
+      @click="$store.commit('toggleMenuState')"
+    ></div>
     <Nuxt />
     <Footer />
   </div>
@@ -10,6 +18,21 @@
 import Footer from '~/components/Footer.vue'
 export default {
   components: { Footer },
+  data() {
+    return {
+      menuState: false,
+    }
+  },
+  computed: {
+    storeMenuState: function () {
+      return this.$store.getters.getMenuState
+    },
+  },
+  watch: {
+    storeMenuState: function (newState) {
+      this.menuState = newState
+    },
+  },
 }
 </script>
 <style>
@@ -33,5 +56,22 @@ a {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+.menuModal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.192);
+  top: 0;
+  left: 0;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.5, 1);
+}
+.slide-enter,
+.slide-leave-active {
+  transform: translateX(100%);
 }
 </style>

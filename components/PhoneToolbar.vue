@@ -51,6 +51,8 @@ export default {
   }
   .menu-btn {
     width: 10%;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 </style>

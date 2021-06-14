@@ -6,7 +6,8 @@
           tag == '' ? { 'font-weight': '600' } : { 'font-weight': '400' },
         ]"
       >
-        {{ category }} <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
+        <nuxt-link :to="'/browse/' + category">{{ category }}</nuxt-link>
+        <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
       </p>
     </div>
     <div class="card-container">
@@ -49,7 +50,6 @@ export default {
       prefetch: true,
       variables() {
         const param = this.$route.params.category
-        console.log(param)
         if (param.includes('_')) {
           this.category = param.split('_')[0]
           this.tag = param.split('_')[1]
