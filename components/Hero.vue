@@ -17,5 +17,9 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
+  @include for-phone-only {
+    background-image: url('/hero1.jpg');
+    height: 299px;
+  }
 }
 </style>

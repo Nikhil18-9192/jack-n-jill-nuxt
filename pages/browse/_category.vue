@@ -143,12 +143,21 @@ export default {
   width: 100%;
   height: 100%;
   padding-bottom: 75px;
+  @include for-phone-only {
+    padding-bottom: 0;
+  }
   .route {
     padding: 25px 85px;
+    @include for-phone-only {
+      padding: 25px 20px;
+    }
     p {
       font-weight: 400;
       font-size: 11px;
       line-height: 12px;
+      @include for-phone-only {
+        line-height: 170%;
+      }
       span {
         font-weight: 600;
       }
@@ -160,13 +169,21 @@ export default {
     grid-template-columns: repeat(4, 1fr);
     gap: 2px;
     border-top: 1px solid #cccccc;
+    @include for-phone-only {
+      padding: 0 10px;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: none;
+    }
     .card {
       position: relative;
       width: 338px;
       height: 449px;
       cursor: pointer;
       transition: 0.3s ease all;
-
+      @include for-phone-only {
+        width: 175px;
+        height: 234px;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -184,6 +201,11 @@ export default {
         padding-top: 35px;
         align-items: center;
         transition: 0.3s ease all;
+        @include for-phone-only {
+          height: 117px;
+          padding-top: 14px;
+          padding-bottom: 20px;
+        }
         p {
           font-weight: 500;
           font-size: 14px;
@@ -191,6 +213,14 @@ export default {
           letter-spacing: 0.03em;
           text-transform: capitalize;
           margin-bottom: 35px;
+          @include for-phone-only {
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 170%;
+            text-align: center;
+            letter-spacing: 0.03em;
+            margin-bottom: 11px;
+          }
         }
         .enquire-btn {
           background: #272727;
@@ -200,11 +230,24 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
+          @include for-phone-only {
+            width: 100%;
+            width: 118px;
+            height: 34px;
+            font-size: 11px;
+            line-height: 12px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+          }
           img {
             width: 25px;
             height: 25px;
             object-fit: contain;
             margin-right: 8px;
+            @include for-phone-only {
+              width: 16px;
+              height: 16px;
+            }
           }
         }
       }

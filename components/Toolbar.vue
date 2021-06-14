@@ -23,6 +23,9 @@ export default {
   height: 100%;
   padding: 0 23px;
   border-bottom: 1px solid #cccccc;
+  @include for-phone-only {
+    display: none;
+  }
   .logo {
     position: relative;
     width: 100%;

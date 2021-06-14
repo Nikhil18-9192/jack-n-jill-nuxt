@@ -68,6 +68,9 @@ export default {
   width: 100%;
   height: 100%;
   padding: 95px 0 65px 85px;
+  @include for-phone-only {
+    padding: 35px 0 20px 20px;
+  }
   .heading {
     h1 {
       font-weight: 500;
@@ -76,6 +79,12 @@ export default {
       letter-spacing: 0.03em;
       text-transform: uppercase;
       margin-bottom: 43px;
+      @include for-phone-only {
+        font-size: 24px;
+        line-height: 131%;
+        max-width: 250px;
+        margin-bottom: 34px;
+      }
     }
     p {
       font-size: 14px;
@@ -88,14 +97,23 @@ export default {
   .carousel {
     width: 100%;
     margin-top: 82px;
+    @include for-phone-only {
+      margin-top: 38px;
+    }
     .slide {
       width: 352px;
       height: 468px;
       margin-right: 20px;
+      @include for-phone-only {
+        width: 225px;
+        height: 100%;
+        margin-right: 14px;
+      }
       .card {
         position: relative;
         width: 100%;
         height: 100%;
+
         img {
           width: 100%;
           height: 100%;
@@ -110,11 +128,18 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
+          @include for-phone-only {
+            height: 89px;
+          }
           p {
             font-weight: 500;
             font-size: 18px;
             line-height: 20px;
             letter-spacing: 0.155em;
+            @include for-phone-only {
+              font-size: 14px;
+              line-height: 16px;
+            }
           }
         }
       }

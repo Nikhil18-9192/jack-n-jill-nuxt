@@ -49,11 +49,19 @@ export default {
   height: 100%;
   padding: 65px 170px 75px 170px;
   background: #f9f9f9;
+  @include for-phone-only {
+    padding: 45px 39px;
+  }
   .container {
     display: flex;
     justify-content: space-between;
     border-bottom: 0.5px solid #000000;
     padding-bottom: 60px;
+    @include for-phone-only {
+      flex-direction: column;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
     .contact {
       h4 {
         font-weight: 600;
@@ -61,6 +69,9 @@ export default {
         line-height: 0%;
         text-transform: uppercase;
         margin-bottom: 45px;
+        @include for-phone-only {
+          margin-bottom: 25px;
+        }
       }
       .phone {
         font-weight: 600;
@@ -73,11 +84,17 @@ export default {
       }
     }
     .visit-us {
+      @include for-phone-only {
+        margin: 35px 0;
+      }
       h4 {
         font-weight: 600;
         font-size: 14px;
         line-height: 0%;
         margin-bottom: 45px;
+        @include for-phone-only {
+          margin-bottom: 25px;
+        }
       }
       p {
         font-weight: 400;
@@ -105,6 +122,9 @@ export default {
         font-size: 11px;
         line-height: 319.5%;
         letter-spacing: 0.03em;
+        @include for-phone-only {
+          font-size: 9px;
+        }
       }
     }
   }

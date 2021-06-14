@@ -2,6 +2,10 @@
   <div id="explore">
     <div class="top">
       <h1>EXPLORE</h1>
+      <p class="desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus et nunc,
+        quis sit.
+      </p>
       <div class="card-container">
         <div class="card" v-for="(item, i) in cards.items" :key="i">
           <nuxt-link class="global-link" to="/"></nuxt-link>
@@ -37,6 +41,9 @@ export default {
   width: 100%;
   height: 100%;
   padding-top: 85px;
+  @include for-phone-only {
+    padding-top: 37px;
+  }
   .top {
     width: 100%;
     height: 345px;
@@ -46,6 +53,23 @@ export default {
       line-height: 134px;
       letter-spacing: 0.16em;
       text-align: center;
+      @include for-phone-only {
+        font-size: 45px;
+        line-height: 72px;
+      }
+    }
+    .desc {
+      display: none;
+      @include for-phone-only {
+        display: block;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0.03em;
+        max-width: 225px;
+        margin: 0 auto;
+        font-weight: 400;
+      }
     }
     .card-container {
       position: absolute;
@@ -53,6 +77,13 @@ export default {
       column-gap: 40px;
       left: 85px;
       top: 293px;
+      @include for-phone-only {
+        flex-wrap: wrap;
+        left: 10px;
+        top: 210px;
+        column-gap: 12px;
+        row-gap: 29px;
+      }
       .card {
         position: relative;
         background: #fff;
@@ -61,7 +92,10 @@ export default {
         display: flex;
         flex-direction: column;
         transition: 0.3s ease all;
-
+        @include for-phone-only {
+          width: 170px;
+          min-height: 100%;
+        }
         .global-link {
           position: absolute;
           top: 0;
@@ -72,6 +106,9 @@ export default {
 
         .image {
           height: 275px;
+          @include for-phone-only {
+            height: 154px;
+          }
           img {
             width: 100%;
             height: 100%;
@@ -90,6 +127,12 @@ export default {
             font-weight: 400;
             max-width: 120px;
             text-transform: uppercase;
+            @include for-phone-only {
+              font-size: 12px;
+              line-height: 20px;
+              letter-spacing: 0.155em;
+              max-width: 85px;
+            }
           }
         }
         &:hover {
@@ -102,6 +145,9 @@ export default {
     background: #eef4f4;
     width: 100%;
     height: 410px;
+    @include for-phone-only {
+      height: 360px;
+    }
   }
 }
 </style>
