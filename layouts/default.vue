@@ -1,6 +1,7 @@
 <template>
   <div>
     <Toolbar />
+    <PhoneToolbar />
     <Nuxt />
     <Footer />
   </div>

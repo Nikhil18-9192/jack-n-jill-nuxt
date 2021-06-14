@@ -1,6 +1,7 @@
 export const state = () => ({
     menuItems: [],
-    exploreCards: ''
+    exploreCards: '',
+    menuState: false,
 })
 
 export const getters = {
@@ -9,7 +10,10 @@ export const getters = {
     },
     getExploreCards: (state) => {
         return state.exploreCards
-    }
+    },
+    getMenuState: (state) => {
+        return state.menuState
+    },
 }
 
 export const mutations = {
@@ -18,7 +22,10 @@ export const mutations = {
     },
     SET_CARDS: (state, payload) => {
         state.exploreCards = payload
-    }
+    },
+    toggleMenuState(state) {
+        state.menuState = !state.menuState
+    },
 }
 
 export const actions = {
