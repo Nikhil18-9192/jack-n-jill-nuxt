@@ -71,6 +71,9 @@ export default {
   @include for-phone-only {
     padding: 35px 0 20px 20px;
   }
+  @include for-tablet-only {
+    padding: 45px 0 45px 60px;
+  }
   .heading {
     h1 {
       font-weight: 500;
@@ -100,6 +103,9 @@ export default {
     @include for-phone-only {
       margin-top: 38px;
     }
+    @include for-tablet-only {
+      margin-top: 45px;
+    }
     .slide {
       width: 352px;
       height: 468px;
@@ -108,6 +114,9 @@ export default {
         width: 225px;
         height: 100%;
         margin-right: 14px;
+      }
+      @include for-tablet-only {
+        height: 100%;
       }
       .card {
         position: relative;

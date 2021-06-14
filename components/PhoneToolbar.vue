@@ -31,6 +31,12 @@ export default {
     justify-content: space-evenly;
     align-items: center;
   }
+  @include for-tablet-only {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 18px 60px;
+  }
   .search {
     width: 10%;
     img {

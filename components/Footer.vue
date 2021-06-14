@@ -52,6 +52,9 @@ export default {
   @include for-phone-only {
     padding: 45px 39px;
   }
+  @include for-tablet-only {
+    padding: 45px 60px 75px 60px;
+  }
   .container {
     display: flex;
     justify-content: space-between;
@@ -61,6 +64,10 @@ export default {
       flex-direction: column;
       padding-bottom: 0;
       border-bottom: none;
+    }
+    @include for-tablet-only {
+      flex-wrap: wrap;
+      row-gap: 30px;
     }
     .contact {
       h4 {

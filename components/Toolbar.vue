@@ -26,6 +26,9 @@ export default {
   @include for-phone-only {
     display: none;
   }
+  @include for-tablet-only {
+    display: none;
+  }
   .logo {
     position: relative;
     width: 100%;

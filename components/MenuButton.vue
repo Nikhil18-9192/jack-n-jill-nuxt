@@ -53,6 +53,9 @@ export default {
   @include for-phone-only {
     display: block;
   }
+  @include for-tablet-only {
+    display: block;
+  }
 
   .burger_menu {
     position: relative;

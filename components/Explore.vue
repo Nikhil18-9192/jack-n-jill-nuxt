@@ -44,6 +44,9 @@ export default {
   @include for-phone-only {
     padding-top: 37px;
   }
+  @include for-tablet-only {
+    padding-top: 45px;
+  }
   .top {
     width: 100%;
     height: 345px;
@@ -56,6 +59,10 @@ export default {
       @include for-phone-only {
         font-size: 45px;
         line-height: 72px;
+      }
+      @include for-tablet-only {
+        font-size: 75px;
+        line-height: 79px;
       }
     }
     .desc {
@@ -84,6 +91,14 @@ export default {
         column-gap: 12px;
         row-gap: 29px;
       }
+      @include for-tablet-only {
+        top: 165px;
+        left: 60px;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 24px;
+      }
+
       .card {
         position: relative;
         background: #fff;
@@ -94,6 +109,10 @@ export default {
         transition: 0.3s ease all;
         @include for-phone-only {
           width: 170px;
+          min-height: 100%;
+        }
+        @include for-tablet-only {
+          width: 200px;
           min-height: 100%;
         }
         .global-link {
@@ -108,6 +127,9 @@ export default {
           height: 275px;
           @include for-phone-only {
             height: 154px;
+          }
+          @include for-tablet-only {
+            height: 180px;
           }
           img {
             width: 100%;

@@ -151,6 +151,9 @@ export default {
     @include for-phone-only {
       padding: 25px 20px;
     }
+    @include for-tablet-only {
+      padding: 25px 45px;
+    }
     p {
       font-weight: 400;
       font-size: 11px;
@@ -173,6 +176,10 @@ export default {
       padding: 0 10px;
       grid-template-columns: repeat(2, 1fr);
       border-top: none;
+    }
+    @include for-tablet-only {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 45px;
     }
     .card {
       position: relative;
