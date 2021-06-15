@@ -10,7 +10,7 @@
             <nuxt-link :to="'/browse/' + item.category.name + '_' + tag.name">
               <p>{{ tag.name }}</p>
             </nuxt-link>
-          </li>
+          </li> 
         </ul>
       </div>
     </div>
