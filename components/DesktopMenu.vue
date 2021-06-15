@@ -10,7 +10,7 @@
             <nuxt-link :to="'/browse/' + item.category.name + '_' + tag.name">
               <p>{{ tag.name }}</p>
             </nuxt-link>
-          </li> 
+          </li>
         </ul>
       </div>
     </div>
@@ -60,7 +60,17 @@ export default {
       min-width: 180px;
       transition: 0.3s ease all;
       z-index: 1;
-
+      max-height: 500px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #f9f9f9;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+      }
       ul {
         list-style: none;
         padding: 0;
