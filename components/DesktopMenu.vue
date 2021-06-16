@@ -40,6 +40,7 @@ export default {
     position: relative;
     padding: 25px;
     transition: 0.3s ease all;
+    cursor: pointer;
     &:last-child {
       .tags {
         left: -40px;

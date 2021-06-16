@@ -44,6 +44,12 @@ export default {
   styleResources: {
     scss: ['~assets/global.scss'],
   },
+  axios: {
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://jj-postgres.herokuapp.com/'
+        : 'http://localhost:1337',
+  },
 
   apollo: {
     tokenName: 'apollo-token',
@@ -52,7 +58,7 @@ export default {
       default: {
         httpEndpoint:
           process.env.NODE_ENV == 'production'
-            ? 'https://api.juvel.in/graphql'
+            ? 'https://jj-postgres.herokuapp.com/graphql'
             : 'http://localhost:1337/graphql'
       }
     }
