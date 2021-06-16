@@ -3,35 +3,33 @@ export default {
   head: {
     title: 'jj-nuxt',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap' }
-    ]
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-
-  ],
-
+  buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -51,23 +49,29 @@ export default {
         : 'http://localhost:1337',
   },
 
+  strapi: {
+    url:
+      process.env.NODE_ENV === 'production'
+        ? 'https://jj-postgres.herokuapp.com/'
+        : 'http://localhost:1337',
+  },
+
   apollo: {
     tokenName: 'apollo-token',
 
     clientConfigs: {
       default: {
         httpEndpoint:
-          process.env.NODE_ENV == 'production'
+          process.env.NODE_ENV === 'production'
             ? 'https://jj-postgres.herokuapp.com/graphql'
-            : 'http://localhost:1337/graphql'
-      }
-    }
+            : 'http://localhost:1337/graphql',
+      },
+    },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {},
 }
