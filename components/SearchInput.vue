@@ -15,10 +15,15 @@ export default {
   },
   methods: {
     async search() {
-      this.result = await this.$axios.$get(
-        `http://localhost:1337/products?keywords_contains=${this.text}`
-      )
-      this.$emit('input', this.result)
+      if (this.text !== '') {
+        this.result = await this.$axios.$get(
+          `http://localhost:1337/products?keywords_contains=${this.text}`
+        )
+        this.$emit('input', this.result)
+      } else {
+        this.result = []
+        this.$emit('input', this.result)
+      }
     },
   },
 }

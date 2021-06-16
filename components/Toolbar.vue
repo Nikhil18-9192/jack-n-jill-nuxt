@@ -6,7 +6,12 @@
         <SearchInput v-if="search" v-model="result" />
         <img v-else src="search.svg" alt="" />
         <div v-if="result && result.length" class="results">
-          <div v-for="(item, i) in result" :key="i">
+          <div class="product" v-for="(item, i) in result" :key="i">
+            <nuxt-link
+              class="global-link"
+              :to="'/browse/' + item.category.name"
+            ></nuxt-link>
+            <img :src="item.image.formats.thumbnail.url" alt="" />
             <p>{{ item.name }}</p>
           </div>
         </div>
@@ -64,6 +69,52 @@ export default {
         width: 18px;
         height: 18px;
         object-fit: contain;
+      }
+      .results {
+        position: absolute;
+        top: 37px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1;
+        max-height: 500px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+          background: #f9f9f9;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #888;
+        }
+        .product {
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding: 15px;
+          box-sizing: border-box;
+          border-bottom: 0.5px solid #ccc;
+          .global-link {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+          img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            margin-right: 12px;
+          }
+          p {
+            font-size: 12px;
+            line-height: 12px;
+            font-weight: 400;
+          }
+          &:hover {
+            background: rgb(235, 235, 235);
+          }
+        }
       }
     }
   }
