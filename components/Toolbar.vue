@@ -2,7 +2,15 @@
   <div id="toolbar">
     <div class="logo">
       <nuxt-link to="/"><img src="/logo.png" alt="logo" /></nuxt-link>
-      <img class="search" src="search.svg" alt="" />
+      <div class="search" @click="search = true">
+        <SearchInput v-if="search" v-model="result" />
+        <img v-else src="search.svg" alt="" />
+        <div v-if="result && result.length" class="results">
+          <div v-for="(item, i) in result" :key="i">
+            <p>{{ item.name }}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <DesktopMenu />
@@ -12,6 +20,12 @@
 <script>
 export default {
   name: 'ToolbarComponent',
+  data() {
+    return {
+      search: false,
+      result: [],
+    }
+  },
 }
 </script>
 
@@ -44,10 +58,13 @@ export default {
     .search {
       position: absolute;
       right: 84px;
-      top: 46px;
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
+      top: 36px;
+      display: flex;
+      img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+      }
     }
   }
 }
