@@ -31,6 +31,7 @@ export default {
       result: [],
     }
   },
+  mounted() {},
 }
 </script>
 
@@ -79,8 +80,9 @@ export default {
         z-index: 1;
         max-height: 500px;
         overflow-y: scroll;
+        overflow-x: hidden;
         &::-webkit-scrollbar {
-          width: 5px;
+          width: 3px;
         }
         &::-webkit-scrollbar-track {
           background: #f9f9f9;
@@ -99,6 +101,7 @@ export default {
             position: absolute;
             width: 100%;
             height: 100%;
+            left: 0;
           }
           img {
             width: 32px;
