@@ -15,7 +15,7 @@
     "@nuxtjs/style-resources": "^1.1.0",
     "core-js": "^3.9.1",
     "node-sass": "^6.0.0",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.15.7",
     "sass-loader": "^10.1.1",
     "vue-carousel": "^0.18.0",
     "vue-pagination-2": "^3.0.91"
