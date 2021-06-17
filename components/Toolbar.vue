@@ -2,11 +2,21 @@
   <div id="toolbar">
     <div class="logo">
       <nuxt-link to="/"><img src="/logo.png" alt="logo" /></nuxt-link>
-      <div class="search" @click="search = true">
-        <SearchInput v-if="search" v-model="result" />
-        <img v-else src="search.svg" alt="" />
+      <div class="search">
+        <SearchInput v-if="$store.state.searchToggle" v-model="result" />
+        <img
+          v-else
+          src="/search.svg"
+          alt=""
+          @click="$store.commit('toggleSearch')"
+        />
         <div v-if="result && result.length" class="results">
-          <div class="product" v-for="(item, i) in result" :key="i">
+          <div
+            class="product"
+            v-for="(item, i) in result"
+            :key="i"
+            @click="clearSearch"
+          >
             <nuxt-link
               class="global-link"
               :to="'/browse/' + item.category.name"
@@ -27,11 +37,15 @@ export default {
   name: 'ToolbarComponent',
   data() {
     return {
-      search: false,
       result: [],
     }
   },
   mounted() {},
+  methods: {
+    clearSearch() {
+      this.result = []
+    },
+  },
 }
 </script>
 

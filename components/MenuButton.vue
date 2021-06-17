@@ -47,8 +47,10 @@ export default {
 
 <style lang="scss" scoped>
 #menu-btn {
-  position: relative;
-  z-index: 2002;
+  position: fixed;
+  top: 45px;
+  right: 20px;
+  z-index: 100;
   display: none;
   @include for-phone-only {
     display: block;

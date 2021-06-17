@@ -28,6 +28,7 @@ export default {
       } else {
         this.result = []
         this.$emit('input', this.result)
+        this.$store.commit('toggleSearch')
       }
     },
   },

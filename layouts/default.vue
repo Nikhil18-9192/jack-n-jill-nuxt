@@ -2,6 +2,7 @@
   <div>
     <Toolbar />
     <PhoneToolbar />
+    <MenuButton />
     <transition name="slide">
       <PhoneMenu v-if="menuState" />
     </transition>
@@ -23,6 +24,7 @@ export default {
       menuState: false,
     }
   },
+
   computed: {
     storeMenuState: function () {
       return this.$store.getters.getMenuState
@@ -61,7 +63,7 @@ a {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.192);
   top: 0;
   left: 0;

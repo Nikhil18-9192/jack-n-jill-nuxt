@@ -20,6 +20,7 @@ export default {
   @include for-phone-only {
     background-image: url('/hero1.jpg');
     height: 299px;
+    margin-top: 95px;
   }
 }
 </style>

@@ -2,6 +2,7 @@ export const state = () => ({
     menuItems: [],
     exploreCards: '',
     menuState: false,
+    searchToggle: false
 })
 
 export const getters = {
@@ -26,6 +27,9 @@ export const mutations = {
     toggleMenuState(state) {
         state.menuState = !state.menuState
     },
+    toggleSearch(state) {
+        state.searchToggle = !state.searchToggle
+    }
 }
 
 export const actions = {

@@ -145,6 +145,7 @@ export default {
   padding-bottom: 75px;
   @include for-phone-only {
     padding-bottom: 0;
+    margin-top: 95px;
   }
   .route {
     padding: 25px 85px;

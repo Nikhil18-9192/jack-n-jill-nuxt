@@ -61,14 +61,16 @@ export default {
 
 <style lang="scss" scoped>
 #phone-menu {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
   max-width: 375px;
   right: 0;
   min-height: 100vh;
   background: #f7f7f7;
-  z-index: 2000;
+  z-index: 2;
   text-transform: uppercase;
   .title {
     padding: 0 20px;
