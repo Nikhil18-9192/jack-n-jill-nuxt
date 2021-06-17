@@ -53,7 +53,11 @@ export default {
     position: absolute;
     right: 20px;
     top: 20px;
-    padding: 6px 8px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     background: #000;
     color: #fff;
