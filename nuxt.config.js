@@ -42,12 +42,7 @@ export default {
   styleResources: {
     scss: ['~assets/global.scss'],
   },
-  axios: {
-    baseURL:
-      process.env.NODE_ENV === 'production'
-        ? 'https://jj-postgres.herokuapp.com/'
-        : 'http://localhost:1337',
-  },
+
 
   strapi: {
     url:
@@ -70,7 +65,12 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://jj-postgres.herokuapp.com'
+        : 'http://localhost:1337',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

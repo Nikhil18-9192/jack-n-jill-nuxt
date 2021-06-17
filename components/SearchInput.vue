@@ -1,6 +1,11 @@
 <template>
   <div id="search-input">
-    <input v-model="text" type="text" @input="search" />
+    <input
+      v-model="text"
+      type="text"
+      @input="search"
+      placeholder="Search Product"
+    />
   </div>
 </template>
 
@@ -17,7 +22,7 @@ export default {
     async search() {
       if (this.text !== '') {
         this.result = await this.$axios.$get(
-          `http://localhost:1337/products?keywords_contains=${this.text}`
+          `/products?keywords_contains=${this.text}`
         )
         this.$emit('input', this.result)
       } else {
