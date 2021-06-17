@@ -22,5 +22,8 @@ export default {
     height: 299px;
     margin-top: 95px;
   }
+  @include for-tablet-only {
+    margin-top: 95px;
+  }
 }
 </style>

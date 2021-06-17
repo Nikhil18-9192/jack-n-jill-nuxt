@@ -46,7 +46,6 @@ export default {
   async asyncData({ $axios, route }) {
     const param = route.params.category
     let totalCount = ''
-
     if (param.includes('_')) {
       const category = param.split('_')[0]
       const tag = param.split('_')[1]
@@ -137,6 +136,9 @@ export default {
   padding-bottom: 75px;
   @include for-phone-only {
     padding-bottom: 0;
+    margin-top: 95px;
+  }
+  @include for-tablet-only {
     margin-top: 95px;
   }
   .route {

@@ -57,6 +57,7 @@ export default {
   }
   @include for-tablet-only {
     display: block;
+    right: 60px;
   }
 
   .burger_menu {
