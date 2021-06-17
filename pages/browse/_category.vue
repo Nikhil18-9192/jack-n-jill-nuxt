@@ -15,7 +15,17 @@
         <img :src="item.image.formats.thumbnail.url" alt="" />
         <div class="title">
           <p>{{ item.name }}</p>
-          <a class="enquire-btn" href="/"
+          <a
+            class="enquire-btn"
+            target="_blank"
+            :href="
+              'https://api.whatsapp.com/send?text= Hello, Im interested in ' +
+              item.name +
+              ' from ' +
+              category +
+              ' category.!&phone=+917866444543'
+            "
+            rel="noreferrer"
             ><img src="/whatsapp.svg" alt="whatsapp icon" /> Enquire</a
           >
         </div>
