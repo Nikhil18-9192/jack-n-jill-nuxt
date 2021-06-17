@@ -2,7 +2,8 @@ export const state = () => ({
     menuItems: [],
     exploreCards: '',
     menuState: false,
-    searchToggle: false
+    searchToggle: false,
+    phoneSearch: false
 })
 
 export const getters = {
@@ -29,6 +30,9 @@ export const mutations = {
     },
     toggleSearch(state) {
         state.searchToggle = !state.searchToggle
+    },
+    togglePhoneSearch(state) {
+        state.phoneSearch = !state.phoneSearch
     }
 }
 

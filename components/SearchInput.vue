@@ -1,11 +1,14 @@
 <template>
   <div id="search-input">
-    <input
-      v-model="text"
-      type="text"
-      @input="search"
-      placeholder="Search Product"
-    />
+    <div class="input">
+      <input
+        v-model="text"
+        type="text"
+        @input="search"
+        placeholder="Search Product"
+      />
+      <div v-if="text !== ''" class="clear" @click="clearText">&#x2715;</div>
+    </div>
   </div>
 </template>
 
@@ -31,6 +34,12 @@ export default {
         this.$store.commit('toggleSearch')
       }
     },
+    clearText() {
+      this.text = ''
+      this.result = []
+      this.$emit('input', this.result)
+      this.$store.commit('toggleSearch')
+    },
   },
 }
 </script>
@@ -39,10 +48,16 @@ export default {
 #search-input {
   position: relative;
   width: 100%;
-  width: 100%;
-  input {
+  height: 100%;
+  .input {
     width: 225px;
     height: 37px;
+    position: relative;
+    margin: 0 auto;
+  }
+  input {
+    width: 100%;
+    height: 100%;
     border: 1px solid #cccc;
     border-radius: 64px;
     outline: none;
@@ -50,6 +65,12 @@ export default {
     font-size: 12px;
     line-height: 12px;
     font-weight: 400;
+  }
+  .clear {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    cursor: pointer;
   }
 }
 </style>

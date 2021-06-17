@@ -50,7 +50,7 @@ export default {
   position: fixed;
   top: 45px;
   right: 20px;
-  z-index: 100;
+  z-index: 10;
   display: none;
   @include for-phone-only {
     display: block;

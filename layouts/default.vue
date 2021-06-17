@@ -3,6 +3,7 @@
     <Toolbar />
     <PhoneToolbar />
     <MenuButton />
+    <PhoneSearchView v-if="$store.state.phoneSearch" />
     <transition name="slide">
       <PhoneMenu v-if="menuState" />
     </transition>

@@ -1,7 +1,11 @@
 <template>
   <div id="phone-toolbar">
     <div class="search">
-      <img src="/search.svg" alt="" />
+      <img
+        src="/search.svg"
+        alt=""
+        @click="$store.commit('togglePhoneSearch')"
+      />
     </div>
     <div class="logo">
       <nuxt-link to="/"><img src="/logo.png" alt="logo" /></nuxt-link>
