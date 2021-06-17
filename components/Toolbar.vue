@@ -84,6 +84,7 @@ export default {
         width: 18px;
         height: 18px;
         object-fit: contain;
+        cursor: pointer;
       }
       .results {
         position: absolute;
