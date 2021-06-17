@@ -36,7 +36,6 @@
 
 <script>
 import productQuery from '@/apollo/queries/products.gql'
-import countQuery from '@/apollo/queries/productsCount.gql'
 import Pagination from 'vue-pagination-2'
 const productsPerPage = 10
 export default {
@@ -44,6 +43,22 @@ export default {
   components: {
     Pagination,
   },
+  async asyncData({ $axios, route }) {
+    const param = route.params.category
+    let totalCount = ''
+
+    if (param.includes('_')) {
+      const category = param.split('_')[0]
+      const tag = param.split('_')[1]
+      totalCount = await $axios.$get(
+        `/products/count?category.name=${category}&tags.name_contains=${tag}`
+      )
+    } else {
+      totalCount = await $axios.$get(`/products/count?category.name=${param}`)
+    }
+    return { totalCount }
+  },
+
   apollo: {
     products: {
       query: productQuery,
@@ -67,23 +82,6 @@ export default {
             start: 0,
             limit: productsPerPage,
           }
-        }
-      },
-    },
-    productsConnection: {
-      query: countQuery,
-      prefetch: true,
-      variables() {
-        const param = this.$route.params.category
-        this.category = param
-        this.tag = ''
-        if (param.includes('_')) {
-          this.category = param.split('_')[0]
-          this.tag = param.split('_')[1]
-        }
-        return {
-          category: this.category,
-          tag: this.tag,
         }
       },
     },
@@ -126,13 +124,7 @@ export default {
       })
     },
   },
-  computed: {
-    totalCount() {
-      return this.productsConnection && this.productsConnection.aggregate
-        ? this.productsConnection.aggregate.count
-        : 0
-    },
-  },
+  computed: {},
   watch: {},
 }
 </script>
