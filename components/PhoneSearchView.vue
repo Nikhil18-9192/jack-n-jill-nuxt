@@ -12,10 +12,18 @@
       :key="i"
       @click="$store.commit('togglePhoneSearch')"
     >
-      <nuxt-link
+      <a
         class="global-link"
-        :to="'/browse/' + item.category.name"
-      ></nuxt-link>
+        target="_blank"
+        :href="
+          'https://api.whatsapp.com/send?text= Hello, Im interested in ' +
+          item.name +
+          ' from ' +
+          item.category.name +
+          ' category.!&phone=+917866444543'
+        "
+        rel="noreferrer"
+      ></a>
       <div class="image">
         <img :src="item.image.formats.thumbnail.url" alt="" />
       </div>

@@ -1,10 +1,9 @@
 <template>
   <div id="home-carousel">
     <div class="heading">
-      <h1>Lorem ipsum dolor</h1>
+      <h1>{{ category.headline }}</h1>
       <p>
-        Lorem ipsum dolor sit amet,consectetur adipiscing elit.Tellus et nunc,
-        quis sit.
+        {{ category.desc }}
       </p>
     </div>
     <client-only>
@@ -26,9 +25,13 @@
         :paginationEnabled="false"
         :navigateTo="currentPage"
       >
-        <slide class="slide" v-for="(item, i) in slides" :key="i">
+        <slide
+          class="slide"
+          v-for="(item, i) in category.categoryCards"
+          :key="i"
+        >
           <div class="card">
-            <img :src="item.src" :alt="item.title" />
+            <img :src="item.image.formats.thumbnail.url" :alt="item.title" />
             <div class="title">
               <p>{{ item.title }}</p>
             </div>
@@ -42,7 +45,6 @@
 <script>
 import Carousel from 'vue-carousel/src/Carousel.vue'
 import Slide from 'vue-carousel/src/Slide.vue'
-import { carouselSlide } from '@/utils'
 export default {
   name: 'HomeCarouselComponent',
   components: {
@@ -55,8 +57,8 @@ export default {
     }
   },
   computed: {
-    slides() {
-      return carouselSlide
+    category() {
+      return this.$store.getters.getCarouselCards
     },
   },
 }

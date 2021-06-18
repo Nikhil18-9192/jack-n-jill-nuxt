@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { exploreCards } from '@/utils'
 export default {
   name: 'ExpoloreComponent',
 
