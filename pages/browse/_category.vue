@@ -47,7 +47,7 @@
 <script>
 import productQuery from '@/apollo/queries/products.gql'
 import Pagination from 'vue-pagination-2'
-const productsPerPage = 10
+const productsPerPage = 12
 export default {
   name: 'CategoryPage',
   components: {
@@ -177,6 +177,8 @@ export default {
     grid-template-columns: repeat(4, 1fr);
     gap: 2px;
     border-top: 1px solid #cccccc;
+    max-width: 1530px;
+    margin: 0 auto;
     @include for-phone-only {
       padding: 0 10px;
       grid-template-columns: repeat(2, 1fr);
@@ -192,6 +194,8 @@ export default {
       height: 449px;
       cursor: pointer;
       transition: 0.3s ease all;
+      background: rgb(250, 250, 250);
+
       @include for-phone-only {
         width: 175px;
         height: 234px;
@@ -200,6 +204,7 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        mix-blend-mode: multiply;
       }
       .title {
         opacity: 0;
@@ -223,7 +228,7 @@ export default {
           font-size: 14px;
           line-height: 170%;
           letter-spacing: 0.03em;
-          text-transform: capitalize;
+          text-transform: uppercase;
           margin-bottom: 35px;
           @include for-phone-only {
             font-weight: 500;
