@@ -31,6 +31,10 @@
           :key="i"
         >
           <div class="card">
+            <nuxt-link
+              class="global-link"
+              :to="'/browse/' + item.category.name"
+            ></nuxt-link>
             <img :src="item.image.formats.thumbnail.url" :alt="item.title" />
             <div class="title">
               <p>{{ item.title }}</p>
@@ -124,7 +128,13 @@ export default {
         position: relative;
         width: 100%;
         height: 100%;
-
+        .global-link {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
         img {
           width: 100%;
           height: 100%;

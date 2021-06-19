@@ -12,7 +12,7 @@
     </div>
     <div class="card-container">
       <div class="card" v-for="(item, i) in products" :key="i">
-        <img :src="item.image.formats.thumbnail.url" alt="" />
+        <img :src="item.image.formats.medium.url" alt="" />
         <div class="title">
           <p>{{ item.name }}</p>
           <a
@@ -293,9 +293,9 @@ export default {
         align-items: center;
         justify-content: center;
         border: 0.5px solid rgba(0, 0, 0, 0.137);
-        margin-bottom: 8px;
+        margin-bottom: 12px !important;
         border-radius: 6px;
-        padding: 4px 0;
+        padding: 8px 0 !important;
       }
       p {
         text-align: center;
