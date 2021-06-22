@@ -25,7 +25,7 @@ export default {
       menuState: false,
     }
   },
-
+  mounted() {},
   computed: {
     storeMenuState: function () {
       return this.$store.getters.getMenuState
