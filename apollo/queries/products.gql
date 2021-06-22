@@ -16,6 +16,7 @@ query products(
       id,
     image{
       formats
+      url
     },
     name
   }

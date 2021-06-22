@@ -41,11 +41,11 @@ export default {
     padding: 25px;
     transition: 0.3s ease all;
     cursor: pointer;
-    &:last-child {
-      .tags {
-        left: -40px;
-      }
-    }
+    // &:last-child {
+    //   .tags {
+    //     left: -40px;
+    //   }
+    // }
     .title {
       font-size: 11px;
       line-height: 12px;

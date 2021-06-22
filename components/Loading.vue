@@ -1,5 +1,5 @@
 <template>
-  <div class="lds-ring" v-if="loading">
+  <div class="lds-ring">
     <div></div>
     <div></div>
     <div></div>
@@ -15,26 +15,19 @@ export default {
       loading: false,
     }
   },
-  methods: {
-    start() {
-      this.loading = true
-    },
-    finish() {
-      this.loading = false
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 .lds-ring {
   display: inline-block;
-  position: fixed;
-  top: 20px;
-  left: 84px;
+  position: relative;
   z-index: 1000;
   width: 80px;
-  height: 80px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @include for-phone-only {
     left: 45px;
   }

@@ -1,5 +1,9 @@
 <template>
   <div id="category">
+    <div class="product-loader" v-if="$apollo.queries.products.loading">
+      <Loading />
+    </div>
+
     <div class="route">
       <p
         :style="[
@@ -12,14 +16,7 @@
     </div>
     <div class="card-container" v-if="products && products.length">
       <div class="card" v-for="(item, i) in products" :key="i">
-        <img
-          :src="
-            item.image.formats.medium.url
-              ? item.image.formats.medium.url
-              : item.image.formats.thumbnail.url
-          "
-          alt=""
-        />
+        <img :src="item.image.url" alt="" />
         <div class="title">
           <p>{{ item.name }}</p>
           <a
@@ -136,7 +133,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.params.category)
+    console.log(this.products)
   },
 
   methods: {
@@ -176,6 +173,19 @@ export default {
   }
   @include for-tablet-only {
     margin-top: 95px;
+  }
+  .product-loader {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: white;
+
+    box-shadow: 4px 4px 32px rgba(0, 0, 0, 0.103);
+    border-radius: 8px;
   }
   .route {
     padding: 25px 85px;
