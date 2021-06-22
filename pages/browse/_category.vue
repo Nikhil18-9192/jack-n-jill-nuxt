@@ -219,6 +219,7 @@ export default {
       padding: 0 10px;
       grid-template-columns: repeat(2, 1fr);
       border-top: none;
+      row-gap: 4px;
     }
     @include for-tablet-only {
       grid-template-columns: repeat(2, 1fr);

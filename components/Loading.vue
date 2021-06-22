@@ -28,9 +28,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  @include for-phone-only {
-    left: 45px;
-  }
 }
 .lds-ring div {
   box-sizing: border-box;
