@@ -1,10 +1,19 @@
 <template>
-  <div id="hero"></div>
+  <div id="hero" :style="{ height: height + 'px' }"></div>
 </template>
 
 <script>
 export default {
   name: 'HeroComponent',
+  data() {
+    return {
+      height: null,
+    }
+  },
+  mounted() {
+    this.height =
+      (document.getElementById('hero').parentElement.clientWidth * 605) / 1440
+  },
 }
 </script>
 
@@ -12,14 +21,11 @@ export default {
 #hero {
   position: relative;
   width: 100%;
-  height: 605px;
   background-image: url('/hero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
   @include for-phone-only {
-    background-image: url('/hero1.jpg');
-    height: 299px;
     margin-top: 95px;
   }
   @include for-tablet-only {
