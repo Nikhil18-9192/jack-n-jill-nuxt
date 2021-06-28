@@ -19,7 +19,7 @@
           [1800, 5],
         ]"
         :loop="true"
-        :autoplay="false"
+        :autoplay="true"
         :autoplayTimeout="5000"
         :mouse-drag="true"
         :paginationEnabled="false"
