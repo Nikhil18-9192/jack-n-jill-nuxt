@@ -61,16 +61,15 @@
         />
       </div>
     </div>
-    <div v-else class="sub-category card-container">
+    <div v-else class="sub-category">
       <div class="card" v-for="(item, i) in tags" :key="i">
         <nuxt-link
           class="global-link"
           :to="'/browse/' + param + '_' + item.name"
         ></nuxt-link>
         <img :src="item.image.url" alt="" />
-        <div class="name">
-          <p>{{ item.name }}</p>
-        </div>
+
+        <p class="name">{{ item.name }}</p>
       </div>
     </div>
     <div class="btn">
@@ -263,29 +262,7 @@ export default {
       grid-template-columns: repeat(2, 1fr);
       padding: 0 45px;
     }
-    .name {
-      background: rgba(255, 255, 255, 0.4);
-      width: 100%;
-      height: 140px;
-      position: absolute;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      @include for-phone-only {
-        height: 89px;
-      }
-      p {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 20px;
-        letter-spacing: 0.155em;
-        @include for-phone-only {
-          font-size: 14px;
-          line-height: 16px;
-        }
-      }
-    }
+
     .global-link {
       position: absolute;
       left: 0;
@@ -416,7 +393,64 @@ export default {
     }
   }
   .sub-category {
-    margin-bottom: 90px;
+    padding: 0 85px 90px 85px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2px;
+    row-gap: 65px;
+    border-top: 1px solid #cccccc;
+    max-width: 1530px;
+    margin: 0 auto;
+    @include for-phone-only {
+      padding: 0 10px;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: none;
+      row-gap: 4px;
+    }
+    @include for-tablet-only {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 45px;
+    }
+
+    .name {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: 0.155em;
+      text-align: center;
+      padding: 7px 0;
+      @include for-phone-only {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+    .global-link {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .card {
+      position: relative;
+      width: 338px;
+      height: 337px;
+      cursor: pointer;
+      transition: 0.3s ease all;
+      background: rgb(250, 250, 250);
+
+      @include for-phone-only {
+        width: 175px;
+        height: 175px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+      }
+    }
   }
   .btn {
     margin-bottom: 25px;
