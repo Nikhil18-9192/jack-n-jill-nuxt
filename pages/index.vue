@@ -1,7 +1,7 @@
 <template>
   <div id="home-page">
     <Hero />
-    <Explore />
+    <!-- <Explore /> -->
     <HomeCarousel />
   </div>
 </template>

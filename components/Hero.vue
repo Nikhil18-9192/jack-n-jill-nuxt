@@ -14,7 +14,7 @@
         ]"
         :loop="true"
         :autoplay="true"
-        :autoplayTimeout="5000"
+        :autoplayTimeout="2000"
         :mouse-drag="true"
         :paginationEnabled="false"
         :navigateTo="currentPage"
@@ -40,7 +40,7 @@ export default {
     return {
       height: null,
       currentPage: 0,
-      banners: ['/hero.jpg', '/hero.jpg', '/hero.jpg'],
+      banners: ['/1.jpg', '/2.jpg', '/3.jpg', '/4.jpg', '/5.jpg'],
     }
   },
   mounted() {
