@@ -1,11 +1,12 @@
 <template>
   <div id="home-carousel">
-    <div class="heading">
+    <!-- <div class="heading">
       <h1>{{ category.headline }}</h1>
       <p>
         {{ category.desc }}
       </p>
-    </div>
+    </div> -->
+    <CtaBtn />
     <client-only>
       <carousel
         ref="slider"
@@ -19,8 +20,8 @@
           [1800, 5],
         ]"
         :loop="true"
-        :autoplay="true"
-        :autoplayTimeout="5000"
+        :autoplay="false"
+        :autoplayTimeout="3000"
         :mouse-drag="true"
         :paginationEnabled="false"
         :navigateTo="currentPage"
@@ -33,7 +34,11 @@
           <div class="card">
             <nuxt-link
               class="global-link"
-              :to="'/browse/' + item.category.name"
+              :to="
+                item.tag && item.tag.name
+                  ? '/browse/' + item.category.name + '_' + item.tag.name
+                  : '/browse/' + item.category.name
+              "
             ></nuxt-link>
             <img :src="item.image.formats.thumbnail.url" :alt="item.title" />
             <div class="title">
@@ -74,6 +79,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 95px 0 65px 85px;
+
   @include for-phone-only {
     padding: 35px 0 20px 20px;
   }
@@ -103,6 +109,7 @@ export default {
       max-width: 333px;
     }
   }
+
   .carousel {
     width: 100%;
     margin-top: 82px;
@@ -113,20 +120,20 @@ export default {
       margin-top: 45px;
     }
     .slide {
-      width: 352px;
-      height: 468px;
-      margin-right: 20px;
+      width: 100%;
+      height: 300px;
+      // margin-right: 20px;
       @include for-phone-only {
         width: 225px;
         height: 100%;
-        margin-right: 14px;
+        // margin-right: 14px;
       }
       @include for-tablet-only {
         height: 100%;
       }
       .card {
         position: relative;
-        width: 100%;
+        width: 300px;
         height: 100%;
         .global-link {
           position: absolute;
@@ -134,6 +141,7 @@ export default {
           top: 0;
           width: 100%;
           height: 100%;
+          z-index: 1;
         }
         img {
           width: 100%;

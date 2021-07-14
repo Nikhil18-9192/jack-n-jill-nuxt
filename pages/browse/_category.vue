@@ -59,6 +59,7 @@
         :options="paginationOptions"
       />
     </div>
+    <CtaBtn />
   </div>
 </template>
 
@@ -228,7 +229,7 @@ export default {
     .card {
       position: relative;
       width: 338px;
-      height: 449px;
+      height: 337px;
       cursor: pointer;
       transition: 0.3s ease all;
       background: rgb(250, 250, 250);

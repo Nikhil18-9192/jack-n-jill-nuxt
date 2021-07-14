@@ -14,7 +14,7 @@
         ]"
         :loop="true"
         :autoplay="true"
-        :autoplayTimeout="2000"
+        :autoplayTimeout="3000"
         :mouse-drag="true"
         :paginationEnabled="false"
         :navigateTo="currentPage"
