@@ -1,20 +1,20 @@
 <template>
   <div id="category">
-    <div v-if="param.includes('_')">
-      <div class="product-loader" v-if="$apollo.queries.products.loading">
-        <Loading />
-      </div>
+    <div class="product-loader" v-if="$apollo.queries.products.loading">
+      <Loading />
+    </div>
 
-      <div class="route">
-        <p
-          :style="[
-            tag == '' ? { 'font-weight': '600' } : { 'font-weight': '400' },
-          ]"
-        >
-          <nuxt-link :to="'/browse/' + category">{{ category }}</nuxt-link>
-          <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
-        </p>
-      </div>
+    <div class="route">
+      <p
+        :style="[
+          tag == '' ? { 'font-weight': '600' } : { 'font-weight': '400' },
+        ]"
+      >
+        <nuxt-link :to="'/browse/' + category">{{ category }}</nuxt-link>
+        <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
+      </p>
+    </div>
+    <div v-if="param.includes('_')">
       <div class="card-container" v-if="products && products.length">
         <div class="card" v-for="(item, i) in products" :key="i">
           <img :src="item.image.url" alt="" />
