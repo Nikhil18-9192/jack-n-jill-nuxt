@@ -1,0 +1,17 @@
+query tags(
+  $category: String!
+  ){
+    tags(  
+    where: {
+      categories: { name: $category }
+      
+    }
+  ){
+      id,
+    image{
+      url
+    },
+    name,
+    
+  }
+  }

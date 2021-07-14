@@ -126,7 +126,7 @@ export default {
       @include for-phone-only {
         width: 225px;
         height: 100%;
-        // margin-right: 14px;
+        margin-right: 14px;
       }
       @include for-tablet-only {
         height: 100%;

@@ -18,6 +18,12 @@ query products(
       formats
       url
     },
-    name
+    name,
+    tags{
+      name,
+      image{
+        url
+      }
+    }
   }
   }

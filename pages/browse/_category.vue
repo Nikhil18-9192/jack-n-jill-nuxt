@@ -1,70 +1,87 @@
 <template>
   <div id="category">
-    <div class="product-loader" v-if="$apollo.queries.products.loading">
-      <Loading />
-    </div>
+    <div v-if="param.includes('_')">
+      <div class="product-loader" v-if="$apollo.queries.products.loading">
+        <Loading />
+      </div>
 
-    <div class="route">
-      <p
-        :style="[
-          tag == '' ? { 'font-weight': '600' } : { 'font-weight': '400' },
-        ]"
-      >
-        <nuxt-link :to="'/browse/' + category">{{ category }}</nuxt-link>
-        <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
-      </p>
-    </div>
-    <div class="card-container" v-if="products && products.length">
-      <div class="card" v-for="(item, i) in products" :key="i">
-        <img :src="item.image.url" alt="" />
-        <div class="title">
-          <p>{{ item.name }}</p>
-          <a
-            class="enquire-btn"
-            target="_blank"
-            :href="
-              'https://api.whatsapp.com/send?text= Hello, Im interested in ' +
-              item.name +
-              ' from ' +
-              category +
-              ' category.!&phone=+917866444543'
-            "
-            rel="noreferrer"
-            ><svg
-              class="svg"
-              width="27"
-              height="27"
-              viewBox="0 0 27 27"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+      <div class="route">
+        <p
+          :style="[
+            tag == '' ? { 'font-weight': '600' } : { 'font-weight': '400' },
+          ]"
+        >
+          <nuxt-link :to="'/browse/' + category">{{ category }}</nuxt-link>
+          <span v-if="tag !== ''">/</span> <span>{{ tag }}</span>
+        </p>
+      </div>
+      <div class="card-container" v-if="products && products.length">
+        <div class="card" v-for="(item, i) in products" :key="i">
+          <img :src="item.image.url" alt="" />
+          <div class="title">
+            <p>{{ item.name }}</p>
+            <a
+              class="enquire-btn"
+              target="_blank"
+              :href="
+                'https://api.whatsapp.com/send?text= Hello, Im interested in ' +
+                item.name +
+                ' from ' +
+                category +
+                ' category.!&phone=+917866444543'
+              "
+              rel="noreferrer"
+              ><svg
+                class="svg"
+                width="27"
+                height="27"
+                viewBox="0 0 27 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M22.4541 4.5091C20.086 2.13821 16.9366 0.831957 13.5815 0.830566C6.66781 0.830566 1.0411 6.45713 1.03832 13.3726C1.03739 15.5833 1.61489 17.7413 2.71258 19.6434L0.933105 26.1431L7.58243 24.3988C9.41458 25.3982 11.4773 25.9249 13.5764 25.9255H13.5816C20.4945 25.9255 26.1219 20.2985 26.1245 13.3827C26.1259 10.0311 24.8224 6.87983 22.4541 4.5091ZM13.5815 23.8072H13.5771C11.7065 23.8065 9.87189 23.3037 8.27101 22.3541L7.89049 22.128L3.94468 23.1632L4.99787 19.3161L4.74991 18.9216C3.70629 17.2617 3.15521 15.3432 3.15614 13.3734C3.1583 7.62542 7.83518 2.949 13.5856 2.949C16.3703 2.94993 18.9879 4.03572 20.9562 6.00631C22.9244 7.9769 24.0077 10.5962 24.0068 13.3819C24.0043 19.1304 19.3278 23.8072 13.5815 23.8072ZM19.3 15.9992C18.9866 15.8422 17.4457 15.0843 17.1583 14.9795C16.8713 14.875 16.6621 14.8229 16.4534 15.1365C16.2444 15.4501 15.6438 16.1562 15.4609 16.3652C15.278 16.5744 15.0954 16.6007 14.7819 16.4437C14.4684 16.2869 13.4587 15.9558 12.2615 14.8881C11.3299 14.0571 10.7009 13.0307 10.518 12.7171C10.3354 12.4032 10.5164 12.2499 10.6555 12.0775C10.9948 11.6562 11.3345 11.2145 11.4389 11.0055C11.5435 10.7963 11.4912 10.6132 11.4127 10.4564C11.3345 10.2996 10.7077 8.75694 10.4466 8.12923C10.192 7.51835 9.93384 7.60086 9.74134 7.59128C9.55873 7.58216 9.3497 7.58031 9.14066 7.58031C8.93179 7.58031 8.59221 7.65864 8.30485 7.97257C8.01764 8.28635 7.20808 9.04446 7.20808 10.5871C7.20808 12.1297 8.33111 13.62 8.48777 13.8292C8.64443 14.0384 10.6978 17.204 13.8416 18.5614C14.5894 18.8846 15.1731 19.0772 15.6284 19.2217C16.3792 19.4602 17.0623 19.4265 17.6024 19.3459C18.2046 19.2558 19.4565 18.5876 19.7179 17.8556C19.979 17.1235 19.979 16.4961 19.9005 16.3652C19.8223 16.2345 19.6133 16.1562 19.3 15.9992Z"
+                  fill="white"
+                /></svg
+              >Enquire</a
             >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M22.4541 4.5091C20.086 2.13821 16.9366 0.831957 13.5815 0.830566C6.66781 0.830566 1.0411 6.45713 1.03832 13.3726C1.03739 15.5833 1.61489 17.7413 2.71258 19.6434L0.933105 26.1431L7.58243 24.3988C9.41458 25.3982 11.4773 25.9249 13.5764 25.9255H13.5816C20.4945 25.9255 26.1219 20.2985 26.1245 13.3827C26.1259 10.0311 24.8224 6.87983 22.4541 4.5091ZM13.5815 23.8072H13.5771C11.7065 23.8065 9.87189 23.3037 8.27101 22.3541L7.89049 22.128L3.94468 23.1632L4.99787 19.3161L4.74991 18.9216C3.70629 17.2617 3.15521 15.3432 3.15614 13.3734C3.1583 7.62542 7.83518 2.949 13.5856 2.949C16.3703 2.94993 18.9879 4.03572 20.9562 6.00631C22.9244 7.9769 24.0077 10.5962 24.0068 13.3819C24.0043 19.1304 19.3278 23.8072 13.5815 23.8072ZM19.3 15.9992C18.9866 15.8422 17.4457 15.0843 17.1583 14.9795C16.8713 14.875 16.6621 14.8229 16.4534 15.1365C16.2444 15.4501 15.6438 16.1562 15.4609 16.3652C15.278 16.5744 15.0954 16.6007 14.7819 16.4437C14.4684 16.2869 13.4587 15.9558 12.2615 14.8881C11.3299 14.0571 10.7009 13.0307 10.518 12.7171C10.3354 12.4032 10.5164 12.2499 10.6555 12.0775C10.9948 11.6562 11.3345 11.2145 11.4389 11.0055C11.5435 10.7963 11.4912 10.6132 11.4127 10.4564C11.3345 10.2996 10.7077 8.75694 10.4466 8.12923C10.192 7.51835 9.93384 7.60086 9.74134 7.59128C9.55873 7.58216 9.3497 7.58031 9.14066 7.58031C8.93179 7.58031 8.59221 7.65864 8.30485 7.97257C8.01764 8.28635 7.20808 9.04446 7.20808 10.5871C7.20808 12.1297 8.33111 13.62 8.48777 13.8292C8.64443 14.0384 10.6978 17.204 13.8416 18.5614C14.5894 18.8846 15.1731 19.0772 15.6284 19.2217C16.3792 19.4602 17.0623 19.4265 17.6024 19.3459C18.2046 19.2558 19.4565 18.5876 19.7179 17.8556C19.979 17.1235 19.979 16.4961 19.9005 16.3652C19.8223 16.2345 19.6133 16.1562 19.3 15.9992Z"
-                fill="white"
-              /></svg
-            >Enquire</a
-          >
+          </div>
+        </div>
+      </div>
+      <div class="pagi-info">
+        <Pagination
+          class="pagination"
+          v-model="page"
+          :records="totalCount"
+          :per-page="productsPerPage"
+          @paginate="paginate"
+          :options="paginationOptions"
+        />
+      </div>
+    </div>
+    <div v-else class="sub-category card-container">
+      <div class="card" v-for="(item, i) in tags" :key="i">
+        <nuxt-link
+          class="global-link"
+          :to="'/browse/' + param + '_' + item.name"
+        ></nuxt-link>
+        <img :src="item.image.url" alt="" />
+        <div class="name">
+          <p>{{ item.name }}</p>
         </div>
       </div>
     </div>
-    <div class="pagi-info">
-      <Pagination
-        class="pagination"
-        v-model="page"
-        :records="totalCount"
-        :per-page="productsPerPage"
-        @paginate="paginate"
-        :options="paginationOptions"
-      />
+    <div class="btn">
+      <CtaBtn />
     </div>
-    <CtaBtn />
   </div>
 </template>
 
 <script>
 import productQuery from '@/apollo/queries/products.gql'
+import tagsQuery from '@/apollo/queries/tags.gql'
 import Pagination from 'vue-pagination-2'
 const productsPerPage = 12
 export default {
@@ -115,6 +132,19 @@ export default {
         }
       },
     },
+    tags: {
+      query: tagsQuery,
+      prefetch: true,
+      variables() {
+        const param = this.$route.params.category
+        if (!param.includes('_')) {
+          this.category = param
+          return {
+            category: param,
+          }
+        }
+      },
+    },
   },
   data() {
     return {
@@ -131,10 +161,12 @@ export default {
       paginationOptions: {
         chunk: 5,
       },
+      param: '',
     }
   },
   mounted() {
-    console.log(this.products)
+    console.log(this.tags)
+    this.param = this.$route.params.category
   },
 
   methods: {
@@ -155,6 +187,11 @@ export default {
           }
         },
       })
+    },
+    async fetchTags() {
+      this.tags = await this.$axios.$get(
+        `/tags?_where[categories.name]=${this.param}`
+      )
     },
   },
   computed: {},
@@ -226,6 +263,37 @@ export default {
       grid-template-columns: repeat(2, 1fr);
       padding: 0 45px;
     }
+    .name {
+      background: rgba(255, 255, 255, 0.4);
+      width: 100%;
+      height: 140px;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include for-phone-only {
+        height: 89px;
+      }
+      p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: 0.155em;
+        @include for-phone-only {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+    .global-link {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
     .card {
       position: relative;
       width: 338px;
@@ -236,7 +304,7 @@ export default {
 
       @include for-phone-only {
         width: 175px;
-        height: 234px;
+        height: 175px;
       }
       img {
         width: 100%;
@@ -346,6 +414,12 @@ export default {
         color: rgb(223, 50, 50);
       }
     }
+  }
+  .sub-category {
+    margin-bottom: 90px;
+  }
+  .btn {
+    margin-bottom: 25px;
   }
 }
 </style>

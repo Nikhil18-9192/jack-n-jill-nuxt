@@ -60,7 +60,7 @@ export default {
       background: #fff;
       min-width: 180px;
       transition: 0.3s ease all;
-      z-index: 1;
+      z-index: 2;
       max-height: 500px;
       overflow-y: scroll;
       &::-webkit-scrollbar {

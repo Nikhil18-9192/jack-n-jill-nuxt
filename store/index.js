@@ -48,7 +48,6 @@ export const actions = {
         const menus = await this.$strapi.find('menus')
         const cards = await this.$strapi.find('explore-cards')
         const categories = await this.$strapi.find('carousel-cards')
-        console.log(categories);
         commit('SET_MENUS', menus)
         commit('SET_CARDS', cards)
         commit('SET_CAROUSEL_CARDS', categories)
