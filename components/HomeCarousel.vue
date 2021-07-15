@@ -40,7 +40,7 @@
                   : '/browse/' + item.category.name
               "
             ></nuxt-link>
-            <img :src="item.image.formats.thumbnail.url" :alt="item.title" />
+            <img :src="item.image.url" :alt="item.title" />
             <div class="title">
               <p>{{ item.title }}</p>
             </div>
@@ -121,7 +121,7 @@ export default {
     }
     .slide {
       width: 100%;
-      height: 300px;
+      height: 100%;
       // margin-right: 20px;
       @include for-phone-only {
         width: 225px;
@@ -151,10 +151,10 @@ export default {
           object-fit: contain;
         }
         .title {
-          background: rgba(255, 255, 255, 0.4);
+          // background: rgba(255, 255, 255, 0.4);
           width: 100%;
-          height: 140px;
-          position: absolute;
+          // height: 140px;
+          position: relative;
           bottom: 0;
           display: flex;
           justify-content: center;
@@ -167,6 +167,7 @@ export default {
             font-size: 18px;
             line-height: 20px;
             letter-spacing: 0.155em;
+            padding: 10px 0;
             @include for-phone-only {
               font-size: 14px;
               line-height: 16px;
