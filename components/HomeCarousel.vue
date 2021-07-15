@@ -13,9 +13,9 @@
         v-model="currentPage"
         class="carousel"
         :perPageCustom="[
-          [320, 2],
-          [375, 2],
-          [768, 3],
+          [320, 1],
+          [375, 1],
+          [768, 2],
           [1200, 4],
           [1800, 5],
         ]"
@@ -81,7 +81,7 @@ export default {
   padding: 95px 0 65px 85px;
 
   @include for-phone-only {
-    padding: 35px 0 20px 20px;
+    padding: 35px 20px 20px 20px;
   }
   @include for-tablet-only {
     padding: 45px 0 45px 60px;
@@ -126,7 +126,6 @@ export default {
       @include for-phone-only {
         width: 225px;
         height: 100%;
-        margin-right: 14px;
       }
       @include for-tablet-only {
         height: 100%;
@@ -135,6 +134,9 @@ export default {
         position: relative;
         width: 300px;
         height: 100%;
+        @include for-phone-only {
+          margin: 0 auto;
+        }
         .global-link {
           position: absolute;
           left: 0;
