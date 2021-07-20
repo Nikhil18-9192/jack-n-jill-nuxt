@@ -9,7 +9,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'jack and jill' },
+      { hid: 'description', name: 'description', content: 'Jack and Jill in Kolhapur is one of the leading businesses in the Baby Care Product Dealers.' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
