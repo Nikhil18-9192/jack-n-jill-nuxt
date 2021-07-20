@@ -3,15 +3,13 @@ query tags(
   ){
     tags(  
     where: {
-      categories: { name: $category }
-      
+      categories: { name: $category }   
     }
   ){
       id,
     image{
       url
     },
-    name,
-    
+    name, 
   }
   }

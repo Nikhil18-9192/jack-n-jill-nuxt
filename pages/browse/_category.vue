@@ -109,10 +109,10 @@ export default {
       prefetch: true,
       variables() {
         const param = this.$route.params.category
+
         if (param.includes('_')) {
           this.category = param.split('_')[0]
           this.tag = param.split('_')[1]
-
           return {
             category: this.category,
             tag: this.tag,
@@ -121,7 +121,6 @@ export default {
           }
         } else {
           this.category = param
-
           return {
             category: param,
             tag: '',
@@ -137,9 +136,12 @@ export default {
       variables() {
         const param = this.$route.params.category
         if (!param.includes('_')) {
-          this.category = param
           return {
             category: param,
+          }
+        } else {
+          return {
+            category: param.split('_')[0],
           }
         }
       },
@@ -164,7 +166,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.tags)
     this.param = this.$route.params.category
   },
 
