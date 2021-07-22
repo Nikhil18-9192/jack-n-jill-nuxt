@@ -28,7 +28,7 @@
                 item.name +
                 ' from ' +
                 category +
-                ' category.!&phone=+917866444543'
+                ' category.!&phone=+919158641555'
               "
               rel="noreferrer"
               ><svg
@@ -208,7 +208,6 @@ export default {
   @include for-phone-only {
     padding-bottom: 0;
     margin-top: 95px;
-     
   }
   @include for-tablet-only {
     margin-top: 95px;
@@ -457,9 +456,9 @@ export default {
   }
   .btn {
     margin-bottom: 25px;
-     @include for-phone-only {
-        margin-top: 65px;
-      }
+    @include for-phone-only {
+      margin-top: 65px;
+    }
   }
 }
 </style>

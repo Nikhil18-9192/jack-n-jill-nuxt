@@ -113,6 +113,7 @@ export default {
   .carousel {
     width: 100%;
     margin-top: 82px;
+
     @include for-phone-only {
       margin-top: 38px;
     }
@@ -122,13 +123,11 @@ export default {
     .slide {
       width: 100%;
       height: 100%;
-      // margin-right: 20px;
-      &:last-child, &:nth-last-child(2){
-        display: none;
-      }
+      padding: 0 20px;
+
       @include for-phone-only {
-        margin-right: 20px;
         height: 100%;
+        padding: 0 10px;
       }
       @include for-tablet-only {
         height: 100%;
@@ -138,8 +137,8 @@ export default {
         width: 300px;
         height: 100%;
         @include for-phone-only {
-          width: 225px;
-          margin: 0 auto;
+          width: 150px;
+          // margin: 0 auto;
         }
         .global-link {
           position: absolute;
@@ -164,7 +163,7 @@ export default {
           justify-content: center;
           align-items: center;
           @include for-phone-only {
-            height: 89px;
+            height: 40px;
           }
           p {
             font-weight: 500;
