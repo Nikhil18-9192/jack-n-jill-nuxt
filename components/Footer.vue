@@ -33,6 +33,10 @@
         <p>Made by Formec Media</p>
         <p>Jack and jill / Copyright 2021 / All Rights Reserved</p>
       </div>
+      <div class="qr">
+        <p>Scan to pay</p>
+        <img src="qr1.jpg" alt="" />
+      </div>
     </div>
   </div>
 </template>
@@ -131,6 +135,23 @@ export default {
         letter-spacing: 0.03em;
         @include for-phone-only {
           font-size: 9px;
+        }
+      }
+    }
+    .qr {
+      @include for-phone-only {
+        margin-top: 35px;
+      }
+      img {
+        width: 150px;
+        height: 100%;
+        object-fit: cover;
+      }
+      p {
+        text-align: center;
+        margin-bottom: 12px;
+        @include for-phone-only {
+          text-align: left;
         }
       }
     }
