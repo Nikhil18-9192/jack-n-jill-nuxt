@@ -29,9 +29,10 @@ export default {}
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.75);
     @include for-phone-only {
-      width: 100%;
-      font-size: 22px;
+      width: 94%;
+      font-size: 20px;
     }
   }
 }

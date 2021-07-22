@@ -28,7 +28,7 @@ export default {
   background: rgb(255, 255, 255);
   display: none;
   padding: 18px 20px;
-  z-index: 1;
+  z-index: 2;
   border-bottom: 0.5px solid #b8b8b8;
   @include for-phone-only {
     display: flex;

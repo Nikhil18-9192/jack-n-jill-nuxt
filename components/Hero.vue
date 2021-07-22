@@ -23,8 +23,8 @@
         :autoplay="true"
         :autoplayTimeout="3000"
         :mouse-drag="true"
-        :paginationEnabled="true"
-        paginationPosition="bottom-overlay"
+        :paginationEnabled="false"
+        
         :navigateTo="currentPage"
       >
         <slide class="slide" v-for="(item, index) in banners" :key="index">
@@ -104,8 +104,8 @@ export default {
     cursor: pointer;
     transition: 0.3s ease all;
     @include for-phone-only {
-      width: 24px;
-      height: 24px;
+      width: 18px;
+      height: 18px;
       top: 45%;
     }
     &:active {

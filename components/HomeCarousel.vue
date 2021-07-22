@@ -14,13 +14,13 @@
         class="carousel"
         :perPageCustom="[
           [320, 1],
-          [375, 1],
+          [375, 2],
           [768, 2],
           [1200, 4],
           [1800, 5],
         ]"
         :loop="true"
-        :autoplay="true"
+        :autoplay="false"
         :autoplayTimeout="3000"
         :mouse-drag="true"
         :paginationEnabled="false"
@@ -123,8 +123,11 @@ export default {
       width: 100%;
       height: 100%;
       // margin-right: 20px;
+      &:last-child, &:nth-last-child(2){
+        display: none;
+      }
       @include for-phone-only {
-        width: 225px;
+        margin-right: 20px;
         height: 100%;
       }
       @include for-tablet-only {
@@ -135,6 +138,7 @@ export default {
         width: 300px;
         height: 100%;
         @include for-phone-only {
+          width: 225px;
           margin: 0 auto;
         }
         .global-link {

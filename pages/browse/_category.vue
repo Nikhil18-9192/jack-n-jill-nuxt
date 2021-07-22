@@ -208,6 +208,7 @@ export default {
   @include for-phone-only {
     padding-bottom: 0;
     margin-top: 95px;
+     
   }
   @include for-tablet-only {
     margin-top: 95px;
@@ -456,6 +457,9 @@ export default {
   }
   .btn {
     margin-bottom: 25px;
+     @include for-phone-only {
+        margin-top: 65px;
+      }
   }
 }
 </style>
