@@ -1,0 +1,10 @@
+query products($category: String!) {
+  products(where: { name: $category }) {
+    subProduct {
+      image {
+        url
+      }
+      name
+    }
+  }
+}

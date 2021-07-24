@@ -16,10 +16,16 @@
       </div>
       <div class="visit-us">
         <h4>Visit Us:</h4>
-        <p>
-          E Ward, opp. shahji law college, Shahupuri, Kolhapur, Maharashtra
-          416001
-        </p>
+        <a
+          href="https://goo.gl/maps/wDQcx1d1WEJeP7y96"
+          target="_blank"
+          rel="noopener"
+        >
+          <p>
+            E Ward, opp. shahji law college, Shahupuri, Kolhapur, Maharashtra
+            416001
+          </p>
+        </a>
       </div>
       <div class="social-icon">
         <div class="icons">
@@ -35,7 +41,7 @@
       </div>
       <div class="qr">
         <p>Scan to pay</p>
-        <img src="qr1.jpg" alt="" />
+        <img src="/qr1.jpg" alt="" />
       </div>
     </div>
   </div>

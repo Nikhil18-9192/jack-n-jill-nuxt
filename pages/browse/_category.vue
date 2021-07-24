@@ -17,8 +17,13 @@
     <div v-if="param.includes('_')">
       <div class="card-container" v-if="products && products.length">
         <div class="card" v-for="(item, i) in products" :key="i">
+          <nuxt-link
+            class="global-link"
+            :to="'/product/' + item.name"
+          ></nuxt-link>
           <img :src="item.image.url" alt="" />
-          <div class="title">
+          <p class="name">{{ item.name }}</p>
+          <!-- <div class="title">
             <p>{{ item.name }}</p>
             <a
               class="enquire-btn"
@@ -47,7 +52,7 @@
                 /></svg
               >Enquire</a
             >
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="pagi-info">
@@ -249,7 +254,8 @@ export default {
     padding: 0 85px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
+    column-gap: 2px;
+    row-gap: 65px;
     border-top: 1px solid #cccccc;
     max-width: 1530px;
     margin: 0 auto;
@@ -257,7 +263,7 @@ export default {
       padding: 0 10px;
       grid-template-columns: repeat(2, 1fr);
       border-top: none;
-      row-gap: 4px;
+      row-gap: 60px;
     }
     @include for-tablet-only {
       grid-template-columns: repeat(2, 1fr);
@@ -289,6 +295,19 @@ export default {
         height: 100%;
         object-fit: contain;
         mix-blend-mode: multiply;
+      }
+      .name {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: 0.155em;
+        text-align: center;
+        text-transform: capitalize;
+        padding: 7px 0;
+        @include for-phone-only {
+          font-size: 14px;
+          line-height: 16px;
+        }
       }
       .title {
         opacity: 0;
@@ -364,6 +383,9 @@ export default {
     justify-content: center;
     margin-bottom: 32px;
     margin-top: 32px;
+    @include for-phone-only {
+      margin-top: 50px;
+    }
     ::v-deep .pagination {
       display: flex;
       justify-content: center;
@@ -406,7 +428,7 @@ export default {
       padding: 0 10px;
       grid-template-columns: repeat(2, 1fr);
       border-top: none;
-      row-gap: 4px;
+      row-gap: 60px;
     }
     @include for-tablet-only {
       grid-template-columns: repeat(2, 1fr);
@@ -421,6 +443,7 @@ export default {
       letter-spacing: 0.155em;
       text-align: center;
       padding: 7px 0;
+      text-transform: capitalize;
       @include for-phone-only {
         font-size: 14px;
         line-height: 16px;
@@ -457,7 +480,7 @@ export default {
   .btn {
     margin-bottom: 25px;
     @include for-phone-only {
-      margin-top: 65px;
+      margin-top: 35px;
     }
   }
 }
